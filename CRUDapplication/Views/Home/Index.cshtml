@@ -1,0 +1,76 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<CRUDapplication.Models.MVCregUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+<label>NO OF USERS:@ViewBag.Count</label>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Uname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Uemail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Ucountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Umob)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().Upwd)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Repwd)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.First().Uimg)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("Delete", "Home", new { id = item.ID }))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uemail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ucountry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Umob)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Upwd)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Repwd)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uimg)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete record with ID=@item.ID');" />
+                </td>
+            </tr>
+        }
+    }
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))

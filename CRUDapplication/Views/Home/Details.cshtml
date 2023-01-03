@@ -1,0 +1,74 @@
+﻿@model CRUDapplication.Models.MVCregUser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MVCregUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Uname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uemail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ucountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ucountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Umob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Umob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Upwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Upwd)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Repwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Repwd)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uimg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uimg)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
